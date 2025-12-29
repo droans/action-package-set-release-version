@@ -8,6 +8,12 @@ export interface Repository {
   repo: string;
 }
 
+export type SemVerRevision =
+  'major'
+  | 'minor'
+  | 'patch'
+  | 'prerelease'
+
 export interface InputResult {
   prerelease: boolean;
   'prerelease_identifier': string;
