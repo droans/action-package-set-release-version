@@ -3,6 +3,7 @@ import { exec } from "node:child_process";
 
 
 export function execWithCallback(cmd: string) {
+  core.debug(`Executing ${cmd}`);
   exec(cmd,
     (error, stdout, stderr) => {
       if (error) {
