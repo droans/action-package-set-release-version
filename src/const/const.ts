@@ -1,9 +1,3 @@
-export const INPUTS = [
-  'prerelease',
-  'prerelease-identifier',
-  'push_after_setting',
-  'version'
-]
 
 export interface InputResult {
   prerelease: boolean;
