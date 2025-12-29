@@ -22,3 +22,5 @@ jobs:
         uses: droans/action-package-set-release-version@v0.0.3
         with:
           push_after_setting: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
