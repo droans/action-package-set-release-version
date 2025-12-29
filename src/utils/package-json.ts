@@ -12,6 +12,7 @@ function getPackageFile(): string {
     }
     return packagePath;
   } catch (e) {
+    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
     core.setFailed(`Error getting package file: ${e}`);
     process.exit(1);
   }
@@ -19,6 +20,7 @@ function getPackageFile(): string {
 
 function getAndOpenPackageFile(): PackageJSONContents {
   const fpath = getPackageFile();
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   return JSON.parse(fs.readFileSync(fpath, 'utf-8'));
 }
 

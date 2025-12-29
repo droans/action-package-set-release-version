@@ -20,7 +20,9 @@ export function getRepository(): Repository {
     core.setFailed(`Could not get repo path from env variables!`)
     process.exit(1);
   }
-  const [owner, repo] = repoPath?.split('/');
+  const repoData = repoPath?.split('/');
+  const owner = repoData[0];
+  const repo = repoData[1];
   return {
     owner: owner,
     repo: repo

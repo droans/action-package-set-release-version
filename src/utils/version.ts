@@ -1,14 +1,13 @@
 import { SemVer } from "semver";
 import { SemVerRevision } from "../const/types.js";
 import { getInputs, getLatestReleaseTag } from "./github.js";
-import { exec } from "node:child_process";
 import { execWithCallback } from "./utils.js";
 
 export async function getNewVersion(
   revision: SemVerRevision = 'minor'
 ): Promise<string> {
   const inputs = getInputs();
-  const prereleaseIdentifier = inputs["prerelease_identifier"];
+  const prereleaseIdentifier = inputs.prerelease_identifier;
   const setVer = inputs.version;
   if (setVer.length) {
     return setVer;
