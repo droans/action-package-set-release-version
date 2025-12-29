@@ -1,0 +1,24 @@
+{
+  "name": "action-package-set-release-version",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/droans/action-package-set-release-version.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/droans/action-package-set-release-version/issues"
+  },
+  "homepage": "https://github.com/droans/action-package-set-release-version#readme",
+  "dependencies": {
+    "@actions/core": "^2.0.1",
+    "@actions/github": "^6.0.1"
+  }
+}

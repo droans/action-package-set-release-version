@@ -1,0 +1,24 @@
+name: Set the release version in your package.json file
+description: Sets the release version in your package.json file, by default using the previous release to determine the next.
+
+inputs:
+  prerelease:
+    description: Update version as prerelease
+    required: false
+    default: 'false'
+  prerelease-identifier:
+    description: Identifier for prerelease versions
+    required: false
+    default: 'b'
+  push_after_setting: 
+    description: Push the updated package.json after setting the version
+    required: false
+    default: 'false'
+  version:
+    description: Release version, overrides any automatically determined version
+    required: false
+    default: ''
+
+runs:
+  using: node24
+  main: dist/index.js
