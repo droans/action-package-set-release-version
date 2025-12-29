@@ -2,6 +2,12 @@ export interface PackageJSONContents {
   version?: string;
   [str: string]: any
 }
+
+export interface Repository {
+  owner: string;
+  repo: string;
+}
+
 export interface InputResult {
   prerelease: boolean;
   'prerelease_identifier': string;

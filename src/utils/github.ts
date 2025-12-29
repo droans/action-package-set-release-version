@@ -2,6 +2,7 @@ import * as core from "@actions/core";
 import * as github from "@actions/github";
 
 import { InputResult } from "../const/types.js";
+import { Repository } from "../const/types.js";
 
 function getGitHubToken(): string {
   const token = process.env.GITHUB_TOKEN;
@@ -12,6 +13,18 @@ function getGitHubToken(): string {
   return token
 }
 
+export function getRepository(): Repository {
+  const repoPath = process.env.GITHUB_REPOSITORY;
+  if (!repoPath) {
+    core.setFailed(`Could not get repo path from env variables!`)
+    process.exit(1);
+  }
+  const [owner, repo] = repoPath?.split('/');
+  return {
+    owner: owner,
+    repo: repo
+  }
+}
 
 export function getInputs(): InputResult {
   const prereleaseStr = core.getInput('prerelease');
