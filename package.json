@@ -3,7 +3,7 @@
   "description": "Set release version in your package.json file based on previous release",
   "repository": "https://github.com/droans/action-package-set-release-version.git",
   "author": "Michael Carroll",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "module": "index.js",
   "keywords": [
     "actions",
