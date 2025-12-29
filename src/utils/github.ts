@@ -36,13 +36,11 @@ export function getInputs(): InputResult {
   }
 }
 
-export function getLatestRelease(prerelease: boolean) {
-  const token = getGitHubToken();
-  const octokit = github.getOctokit(token);
-
-  // TODO
+export async function getLatestRelease() {
+  const octokit = getOktokit();
 }
-
-export function uploadUpdatedPackageJson(data: Record<string, any>) {
   // TODO
+function getOktokit() {
+  const token = getGitHubToken();
+  return github.getOctokit(token);
 }
