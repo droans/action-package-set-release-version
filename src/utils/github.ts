@@ -51,7 +51,12 @@ export function getInputs(): InputResult {
 
 export async function getLatestRelease() {
   const octokit = getOktokit();
+  const repoData = getRepository();
+  const owner = repoData.owner;
+  const repo = repoData.repo
+  return await octokit.rest.repos.getLatestRelease({owner, repo});
 }
+
   // TODO
 function getOktokit() {
   const token = getGitHubToken();
