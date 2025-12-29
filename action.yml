@@ -14,6 +14,18 @@ inputs:
     description: Push the updated package.json after setting the version
     required: false
     default: 'false'
+  commit_message:
+    description: Message for the commit, if `push_after_setting` is true.
+    required: false
+    default: 'beep boop version bump'
+  git_user:
+    description: Username used for commit, if `push_after_setting` is true.
+    required: false
+    default: ''
+  git_email:
+    description: Email used for commit, if `push_after_setting` is true.
+    required: false
+    default: ''
   version:
     description: Release version, overrides any automatically determined version
     required: false
