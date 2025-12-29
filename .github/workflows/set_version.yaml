@@ -18,5 +18,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v6.0.0
+      - name: Test code
+        run: |
+          ls /home/runner/work/_actions/droans/action-paclage-set-release-version
+          ls /home/runner/work/_actions/droans/action-paclage-set-release-version/*
+          ls /home/runner/work/_actions/droans/action-paclage-set-release-version/*/*
+          ls /home/runner/work/_actions/droans/action-paclage-set-release-version/*/*/*
       - name: Set Version
         uses: droans/action-package-set-release-version@v0.0.1
