@@ -2,6 +2,7 @@ import { SemVer } from "semver";
 import { SemVerRevision } from "../const/types.js";
 import { getInputs, getLatestReleaseTag } from "./github.js";
 import { exec } from "node:child_process";
+import { execWithCallback } from "./utils.js";
 
 export async function getNewVersion(
   revision: SemVerRevision = 'minor'
@@ -19,6 +20,6 @@ export async function getNewVersion(
 }
 
 export function updateReleaseVersion(newVer: string) {
-  exec(`npm version '${newVer} --git-tag-version false`);
+  execWithCallback(`npm version '${newVer} --git-tag-version false`);
   return;
 }

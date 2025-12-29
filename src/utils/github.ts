@@ -3,7 +3,7 @@ import * as github from "@actions/github";
 
 import { InputResult } from "../const/types.js";
 import { Repository } from "../const/types.js";
-import { exec } from "node:child_process";
+import { execWithCallback } from "./utils.js";
 
 function getGitHubToken(): string {
   const token = process.env.GITHUB_TOKEN;
@@ -82,11 +82,11 @@ export function uploadUpdatedPackageJson() {
   core.debug(`Setting GH User to ${ghUser}`);
   core.debug(`Setting GH Email to ${ghEmail}`);
   core.debug(`Setting commit message to ${msg}`);
-  exec(`git config --local user.email "${ghEmail}"`);
-  exec(`git config --local user.name "${ghUser}"`);
-  exec(`git add package.json`);
-  exec(`git commit -m ${msg}`);
-  exec(`git push`);
+  execWithCallback(`"git" config --local user.email "${ghEmail}"`);
+  execWithCallback(`"git" config --local user.name "${ghUser}"`);
+  execWithCallback(`"git" add package.json`);
+  execWithCallback(`"git" commit -m ${msg}`);
+  execWithCallback(`"git" push`);
   core.info(`Pushed updated package.json`)
 }
 
