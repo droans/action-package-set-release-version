@@ -6,5 +6,8 @@ export interface InputResult {
   prerelease: boolean;
   'prerelease_identifier': string;
   push_after_setting: boolean;
+  git_user: string,
+  git_email: string,
+  commit_message: string;
   version: string;
 }

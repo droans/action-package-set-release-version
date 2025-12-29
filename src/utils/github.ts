@@ -32,13 +32,18 @@ export function getInputs(): InputResult {
   const prerelease = prereleaseStr.toLowerCase() == 'true';
   const pushAfter = pushAfterStr.toLowerCase() == 'true';
   const prereleaseId = core.getInput('prerelease_identifier');
+  const commitMessage = core.getInput('commit_message');
+  const gitUserUnparsed = core.getInput('git_user');
+  const gitEmailUnparsed = core.getInput('git_email');
+  const [gitUser, gitEmail] = parseGitUserEmail(gitUserUnparsed, gitEmailUnparsed);
   const ver = core.getInput('ver');
-
-
   return {
     prerelease: prerelease,
     "prerelease_identifier": prereleaseId,
     push_after_setting: pushAfter,
+    commit_message: commitMessage,
+    git_user: gitUser,
+    git_email: gitEmail,
     version: ver
   }
 }
