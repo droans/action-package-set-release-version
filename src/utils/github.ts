@@ -67,6 +67,11 @@ export async function getLatestRelease() {
   return await octokit.rest.repos.getLatestRelease({owner, repo});
 }
 
+export async function getLatestReleaseTag() {
+  const release = await getLatestRelease();
+  return release.data.tag_name;
+}
+
   // TODO
 function getOktokit() {
   const token = getGitHubToken();
