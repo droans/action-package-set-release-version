@@ -31,7 +31,3 @@ export function getCurrentVersion() {
   }
   return js.version;
 }
-
-export function updateReleaseVersion(prerelease: boolean) {
-  // TODO
-}

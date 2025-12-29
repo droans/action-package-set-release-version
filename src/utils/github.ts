@@ -1,7 +1,7 @@
 import * as core from "@actions/core";
 import * as github from "@actions/github";
 
-import { INPUTS, InputResult } from "../const/types.js";
+import { InputResult } from "../const/types.js";
 
 function getGitHubToken(): string {
   const token = process.env.GITHUB_TOKEN;
@@ -12,18 +12,6 @@ function getGitHubToken(): string {
   return token
 }
 
-export function listEnv() {
-  const entries = Object.entries(process.env).sort();
-  entries.forEach(
-    (entry) => {
-      const key = entry[0];
-      const val = entry[1];
-      if (key.toLowerCase() != 'github_token') {
-        console.log(`${key}: ${val}`);
-      }
-    }
-  )
-}
 
 export function getInputs(): InputResult {
   const prereleaseStr = core.getInput('prerelease');
