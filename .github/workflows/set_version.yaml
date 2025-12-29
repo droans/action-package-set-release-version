@@ -19,4 +19,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v6.0.0
       - name: Set Version
-        uses: droans/action-package-set-release-version@v0.0.2
+        uses: droans/action-package-set-release-version@v0.0.3
+        with:
+          push_after_setting: true
