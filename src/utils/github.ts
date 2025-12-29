@@ -31,13 +31,13 @@ export function getInputs(): InputResult {
   
   const prerelease = prereleaseStr.toLowerCase() == 'true';
   const pushAfter = pushAfterStr.toLowerCase() == 'true';
-  const prereleaseId = core.getInput('prerelease-identifier');
+  const prereleaseId = core.getInput('prerelease_identifier');
   const ver = core.getInput('ver');
 
 
   return {
     prerelease: prerelease,
-    "prerelease-identifier": prereleaseId,
+    "prerelease_identifier": prereleaseId,
     push_after_setting: pushAfter,
     version: ver
   }

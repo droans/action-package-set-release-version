@@ -6,7 +6,7 @@ inputs:
     description: Update version as prerelease
     required: false
     default: 'false'
-  prerelease-identifier:
+  prerelease_identifier:
     description: Identifier for prerelease versions
     required: false
     default: 'b'

@@ -7,7 +7,7 @@ export const INPUTS = [
 
 export interface InputResult {
   prerelease: boolean;
-  'prerelease-identifier': string;
+  'prerelease_identifier': string;
   push_after_setting: boolean;
   version: string; 
 }
