@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "ES2021",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "lib": ["es2021", "dom", "dom.iterable"],
+    "noEmit": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin",
+        "validate": false
+      },
+      {
+        "name": "ts-styled-plugin",
+        "validate": false
+      },
+      {
+        "name": "@styled/typescript-styled-plugin",
+        "validate": false
+      }
+    ]
+  },
+  "include": ["src"]
+}
