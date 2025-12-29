@@ -73,8 +73,7 @@ export async function getLatestReleaseTag() {
   return release.data.tag_name;
 }
 
-export function uploadUpdatedPackageJson() {
-  // TODO
+export async function uploadUpdatedPackageJson() {
   const inputs = getInputs();
   const msg = inputs.commit_message;
   const ghUser = inputs.git_user;
@@ -82,11 +81,11 @@ export function uploadUpdatedPackageJson() {
   core.debug(`Setting GH User to ${ghUser}`);
   core.debug(`Setting GH Email to ${ghEmail}`);
   core.debug(`Setting commit message to ${msg}`);
-  execWithCallback(`"git" config --local user.email "${ghEmail}"`);
-  execWithCallback(`"git" config --local user.name "${ghUser}"`);
-  execWithCallback(`"git" add package.json`);
-  execWithCallback(`"git" commit -m ${msg}`);
-  execWithCallback(`"git" push`);
+  await execWithCallback(`"git" config --local user.email "${ghEmail}"`);
+  await execWithCallback(`"git" config --local user.name "${ghUser}"`);
+  await execWithCallback(`"git" add package.json`);
+  await execWithCallback(`"git" commit -m ${msg}`);
+  await execWithCallback(`"git" push`);
   core.info(`Pushed updated package.json`)
 }
 

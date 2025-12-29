@@ -19,7 +19,7 @@ export async function getNewVersion(
   return newVer.raw;
 }
 
-export function updateReleaseVersion(newVer: string) {
-  execWithCallback(`npm version '${newVer} --git-tag-version false`);
+export async function updateReleaseVersion(newVer: string) {
+  await execWithCallback(`npm version '${newVer} --git-tag-version false`);
   return;
 }

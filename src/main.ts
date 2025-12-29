@@ -7,18 +7,18 @@ async function main() {
   const inputs = getInputs();
   const ver = inputs.version;
   if (ver.length) {
-    updateReleaseVersion(ver);
+    await updateReleaseVersion(ver);
   } else {
     const priorTag = await getLatestReleaseTag();
     if (!semver.valid(priorTag)) {
       core.setFailed(`Previous version ${priorTag} is not valid!`);
     }
     const newTag = await getNewVersion();
-    updateReleaseVersion(newTag);
+    await updateReleaseVersion(newTag);
     core.info(`Set new version as ${newTag}`)
   }
   if (inputs.push_after_setting) {
-    uploadUpdatedPackageJson();
+    await uploadUpdatedPackageJson();
   }
 
 }
