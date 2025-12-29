@@ -86,7 +86,7 @@ export async function uploadUpdatedPackageJson() {
   await execWithCallback(`"git" config --local user.email "${ghEmail}"`);
   await execWithCallback(`"git" config --local user.name "${ghUser}"`);
   await execWithCallback(`"git" add package.json`);
-  await execWithCallback(`"git" commit -m ${msg}`);
+  await execWithCallback(`"git" commit -m "${msg}"`);
   await execWithCallback(`"git" push`);
   core.info(`Pushed updated package.json`)
 }
