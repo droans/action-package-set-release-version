@@ -3,6 +3,7 @@ import * as github from "@actions/github";
 
 import { InputResult } from "../const/types.js";
 import { Repository } from "../const/types.js";
+import { exec } from "node:child_process";
 
 function getGitHubToken(): string {
   const token = process.env.GITHUB_TOKEN;
@@ -72,7 +73,23 @@ export async function getLatestReleaseTag() {
   return release.data.tag_name;
 }
 
+export function uploadUpdatedPackageJson() {
   // TODO
+  const inputs = getInputs();
+  const msg = inputs.commit_message;
+  const ghUser = inputs.git_user;
+  const ghEmail = inputs.git_email;
+  core.debug(`Setting GH User to ${ghUser}`);
+  core.debug(`Setting GH Email to ${ghEmail}`);
+  core.debug(`Setting commit message to ${msg}`);
+  exec(`git config --local user.email "${ghEmail}"`);
+  exec(`git config --local user.name "${ghUser}"`);
+  exec(`git add package.json`);
+  exec(`git commit -m ${msg}`);
+  exec(`git push`);
+  core.info(`Pushed updated package.json`)
+}
+
 function getOktokit() {
   const token = getGitHubToken();
   return github.getOctokit(token);
