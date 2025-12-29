@@ -49,6 +49,16 @@ export function getInputs(): InputResult {
   }
 }
 
+export function parseGitUserEmail(git_user: string, git_email: string) {
+  if (!git_user?.length) {
+    git_user = 'github-actions-package-set-release-version[bot]'
+  }
+  if (!git_email?.length) {
+    git_email = 'github-actions-package-set-release-version[bot]@users.noreply.github.com'
+  }
+  return [git_user, git_email];
+}
+
 export async function getLatestRelease() {
   const octokit = getOktokit();
   const repoData = getRepository();
