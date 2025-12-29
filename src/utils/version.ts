@@ -20,6 +20,6 @@ export async function getNewVersion(
 
 export async function updateReleaseVersion(newVer: string) {
   newVer = newVer.startsWith('v') ? newVer : `v${newVer}`;
-  await execWithCallback(`npm version '${newVer} --git-tag-version false`);
+  await execWithCallback(`npm version '${newVer}' --git-tag-version false`);
   return;
 }
