@@ -1,7 +1,7 @@
 import * as core from "@actions/core";
 import * as github from "@actions/github";
 
-import { INPUTS, InputResult } from "../const/const.js";
+import { INPUTS, InputResult } from "../const/types.js";
 
 function getGitHubToken(): string {
   const token = process.env.GITHUB_TOKEN;
