@@ -13,7 +13,7 @@ function getGitHubToken(): string {
 }
 
 export function listEnv() {
-  const entries = Object.entries(process.env);
+  const entries = Object.entries(process.env).sort();
   entries.forEach(
     (entry) => {
       const key = entry[0];
