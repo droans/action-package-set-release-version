@@ -1,0 +1,22 @@
+---
+name: Set Version
+
+# yamllint disable-line rule:truthy
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  pull-requests: write
+
+jobs:
+  set_version:
+    name: Set Version
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6.0.0
+      - name: Set Version
+        uses: droans/action-package-set-release-version
